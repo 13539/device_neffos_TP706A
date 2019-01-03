@@ -68,6 +68,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP
+DEVICE_RESOLUTION := 720x1440
 TARGET_RECOVERY_FSTAB := device/neffos/C9a/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
@@ -79,12 +80,12 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_ALWAYS_RMRF := false
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
-TW_INCLUDE_CRYPTO := true
-TW_CUSTOM_THEME := device/neffos/C9a/theme
 TW_MTP_DEVICE := "/dev/mtp_usb"
+TW_EXCLUDE_SUPERSU := true
 # Crypto
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/bootdevice/by-name/userdata" 
 TW_CRYPTO_MNT_POINT := "/data"
 TW_CRYPTO_KEY_LOC := "footer"
 TW_CRYPTO_FS_OPTIONS := "nosuid,nodev,noatime,discard,noauto_da_alloc,data =ordered"
 TW_INCLUDE_L_CRYPTO := true
+TW_INCLUDE_CRYPTO := true
