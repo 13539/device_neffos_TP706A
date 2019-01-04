@@ -26,14 +26,8 @@ LOCAL_PATH := device/neffos/TP706A
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
 #
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := $(LOCAL_PATH)/zImage-dtb
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/zImage-dtb:kernel \
     $(LOCAL_PATH)/recovery/init.recovery.mt6739.rc:recovery/root/init.recovery.mt6739.rc
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
