@@ -28,14 +28,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
 #
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/init.recovery.mt6739.rc:recovery/root/init.recovery.mt6739.rc
+    $(LOCAL_PATH)/recovery/init.recovery.mt6739.rc:root/init.recovery.mt6739.rc \
+    $(LOCAL_PATH)/recovery/init.recovery.usb.rc:root/init.recovery.usb.rc \
+    $(LOCAL_PATH)/recovery/init.usb.configfs.rc:root/init.usb.configfs.rc
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.adb.secure=0 \
 	ro.secure=0 \
 	ro.allow.mock.location=0 \
 	ro.debuggable=1 \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp,adb \
+    ro.mount.fs=EXT4 \
+    ro.mtkrc.path=/vendor/etc/init/hw/ \
+    sys.usb.configfs=1 \
+    sys.usb.config=mtp,adb \
+    sys.usb.configfs=1
 
 # Enable SuperSU
 WITH_SU := true

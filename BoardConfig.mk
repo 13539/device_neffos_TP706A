@@ -64,7 +64,7 @@ TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 #BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 #TARGET_PREBUILT_KERNEL := device/neffos/TP706A/zImage-dtb
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=eng
 TARGET_USES_64_BIT_BINDER := true
 BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
@@ -77,6 +77,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 DEVICE_RESOLUTION := 720x1440
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
+TW_ALLOW_PARTITION_SDCARD := true
 TARGET_RECOVERY_FSTAB := device/neffos/TP706A/recovery/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
@@ -89,6 +90,7 @@ TW_MAX_BRIGHTNESS := 255
 TW_ALWAYS_RMRF := false
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TW_MTP_DEVICE := /dev/mtp_usb
+TW_HAS_MTP := true
 TW_EXCLUDE_SUPERSU := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
 TW_EXCLUDE_TWRPAPP := true
