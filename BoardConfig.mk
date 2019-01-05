@@ -93,10 +93,14 @@ TW_MTP_DEVICE := /dev/mtp_usb
 TW_HAS_MTP := true
 TW_EXCLUDE_SUPERSU := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
+BOARD_UMS_LUNFILE := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
 TW_EXCLUDE_TWRPAPP := true
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT :="external_sd"
+TW_USE_TOOLBOX := true
+TWRP_INCLUDE_LOGCAT := true
+TWHAVE_SELINUX := true
 # Crypto
 TW_INCLUDE_CRYPTO := true
