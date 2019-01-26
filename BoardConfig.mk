@@ -62,9 +62,7 @@ BOARD_TAGS_OFFSET := 0x03f88000
 BOARD_KERNEL_OFFSET := 0x00008000
 TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-#BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-#TARGET_PREBUILT_KERNEL := device/neffos/TP706A/zImage-dtb
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=eng
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=eng androidboot.selinux=permissive androidboot.configfs=true
 TARGET_USES_64_BIT_BINDER := true
 BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
@@ -74,33 +72,38 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 25165824
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # TWRP
-DEVICE_RESOLUTION := 720x1440
+############new
+TW_NO_SCREEN_BLANK := true
+TW_ALWAYS_RMRF := true
+BOARD_SUPPRESS_SECURE_ERASE := true
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
+################################
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
+#BOARD_UMS_LUNFILE := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
+#DEVICE_RESOLUTION := 720x1440
+#BOARD_HAS_NO_SELECT_BUTTON := true
+#TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+#RECOVERY_SDCARD_ON_DATA := true
+#TW_MTP_DEVICE := /dev/mtp_usb
+#TW_HAS_MTP := true
+#TW_USE_TOOLBOX := true
+#TWRP_INCLUDE_LOGCAT := true
+#TWHAVE_SELINUX := true
+#TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+#TW_MAX_BRIGHTNESS := 255
+#TW_DEFAULT_EXTERNAL_STORAGE := true
+#################################
 TARGET_SCREEN_WIDTH := 720
 TARGET_SCREEN_HEIGHT := 1440
 TW_ALLOW_PARTITION_SDCARD := true
 TARGET_RECOVERY_FSTAB := device/neffos/TP706A/recovery/recovery.fstab
-BOARD_HAS_NO_SELECT_BUTTON := true
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 TW_DEFAULT_LANGUAGE := ru
 TW_DEVICE_VERSION := by andrwgldmn
-RECOVERY_SDCARD_ON_DATA := true
-TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TW_MAX_BRIGHTNESS := 255
-TW_ALWAYS_RMRF := false
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_MTP_DEVICE := /dev/mtp_usb
-TW_HAS_MTP := true
 TW_EXCLUDE_SUPERSU := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
-BOARD_UMS_LUNFILE := /config/usb_gadget/g1/functions/mass_storage.usb0/lun.0/file
 TW_EXCLUDE_TWRPAPP := true
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT :="external_sd"
-TW_USE_TOOLBOX := true
-TWRP_INCLUDE_LOGCAT := true
-TWHAVE_SELINUX := true
-# Crypto
 TW_INCLUDE_CRYPTO := true

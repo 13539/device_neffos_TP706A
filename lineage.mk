@@ -1,6 +1,7 @@
 # Release name
 PRODUCT_RELEASE_NAME := TP706A
 
+$(call inherit-product, vendor/lineage/config/common.mk)
 $(call inherit-product, device/neffos/TP706A/TP706A.mk)
 
 # Device identifier. This must come after all inclusions
